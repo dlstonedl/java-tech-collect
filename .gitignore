@@ -4,4 +4,6 @@
 /out/
 *.iml
 /target/
+rabbitmq/sprint-boot-consumer/target/
+rabbitmq/sprint-boot-producer/target/
 vcs.xml
