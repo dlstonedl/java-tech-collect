@@ -10,9 +10,28 @@ spring:
     virtual-host: /
 
     listener:
+#     SimpleMessageListenerContainer，默认simple
       type: simple
       simple:
+#       false：不重回队列，默认true
         default-requeue-rejected: false
+
+#       ack模式，默认auto
+        acknowledge-mode: auto
+
+#       消息预取，默认250
+        prefetch: 5
+#       每事务一个ack，要求ack模式为auto，默认1
+        transaction-size: 5
+
+#       并发，消费者数，默认1
+        concurrency: 5
+#       最大并发，消费者数
+        max-concurrency: 5
+
+
+
+
 
 
 
