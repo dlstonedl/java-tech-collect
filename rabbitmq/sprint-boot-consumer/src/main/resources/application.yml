@@ -4,9 +4,22 @@ spring:
   application:
     name: sprint-boot-producer
   rabbitmq:
-      host: localhost
-      username: guest
-      password: guest
+    host: localhost
+    username: guest
+    password: guest
+    virtual-host: /
+
+    listener:
+      type: simple
+      simple:
+        default-requeue-rejected: false
+
+
+
+
+
+
+
 
 
 
