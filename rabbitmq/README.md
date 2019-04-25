@@ -23,5 +23,23 @@ publisher-returns=true：ReturnCallback
 
 ##消费端
 
-default-requeue-rejected: false
+default-requeue-rejected: 默认为true(重回队列)
+建议：生产环境一般设置为false
 含义：失败不重回队列(生产使用)
+
+ack默认方式：AcknowledgeMode.AUTO
+
+prefetchCount 消息预取: DEFAULT_PREFETCH_COUNT=250
+
+transaction-size 消息ack，默认为1
+约束：txSize <= prefetchCount
+约束：AcknowledgeMode#AUTO
+约束：one ack per txSize. Default is 1
+
+concurrency，默认为1，max-concurrency
+含义：消费者个数，并发
+注意：每个消费者都有自己消息预取（prefetchCount），
+concurrency * prefetchCount为一台机器的消费能力；
+
+
+
