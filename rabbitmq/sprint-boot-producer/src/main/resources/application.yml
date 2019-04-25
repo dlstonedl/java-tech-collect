@@ -4,9 +4,17 @@ spring:
   application:
     name: sprint-boot-producer
   rabbitmq:
-      host: localhost
-      username: guest
-      password: guest
+    host: localhost
+    username: guest
+    password: guest
+    virtual-host: /
+
+    publisher-confirms: true
+    publisher-returns: true
+    template:
+      mandatory: true
+
+
 
 
 
