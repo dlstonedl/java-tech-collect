@@ -18,8 +18,11 @@ public class RabbitSenderTest {
 
     @Test
     public void confirm_callback_happy_path() throws Exception{
-        CorrelationData correlationData = new CorrelationData("111");
-        rabbitSender.send("spring_boot_producer_exchange", "spring.boot.hello","Hello SpringBoot RabbitMQ", correlationData);
+        for (int i = 0; i < 5; i++) {
+            CorrelationData correlationData = new CorrelationData("111");
+            rabbitSender.send("spring_boot_producer_exchange", "spring.boot.hello","Hello SpringBoot RabbitMQ", correlationData);
+        }
+
         TimeUnit.SECONDS.sleep(1);
     }
 
