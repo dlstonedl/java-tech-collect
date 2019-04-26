@@ -6,6 +6,8 @@ import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.*;
 import org.springframework.stereotype.Component;
 
+import java.util.concurrent.TimeUnit;
+
 @Component
 public class RabbitReceiver {
 
@@ -13,12 +15,21 @@ public class RabbitReceiver {
             value = @Queue(name = "spring_boot_queue",
                     durable = "true",
                     exclusive = "false",
-                    autoDelete = "false"),
+                    autoDelete = "false",
+                    arguments= {@Argument(name = "x-dead-letter-exchange", value = "dlx.exchange")}),
             exchange = @Exchange(name = "spring_boot_producer_exchange",
                     type = ExchangeTypes.TOPIC),
             key = "spring.boot.*"
     ))
     public void handler(Message message, Channel channel) throws Exception {
-        System.err.println(new String(message.getBody()));
+        String ms = new String(message.getBody());
+
+        System.err.println(ms);
+
+        if (ms.contains("3")) {
+            throw new RuntimeException();
+        }
+
+        TimeUnit.SECONDS.sleep(5);
     }
 }
