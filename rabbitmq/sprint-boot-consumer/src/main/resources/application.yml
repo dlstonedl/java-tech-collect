@@ -24,6 +24,19 @@ spring:
 #       每事务一个ack，要求ack模式为auto，默认1
         transaction-size: 5
 
+#       本地重试
+        retry:
+#         是否开启重试
+          enabled: true
+#         次数
+          max-attempts: 5
+#         最大重试间隔
+          max-interval: 20000ms
+#         初始重试间隔
+          initial-interval: 3000ms
+#         重试间隔系数（next = current * multiplier）
+          multiplier: 1.0
+
 #       并发，消费者数，默认1
         concurrency: 5
 #       最大并发，消费者数
