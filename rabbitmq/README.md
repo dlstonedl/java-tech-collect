@@ -47,10 +47,16 @@ retry：默认为false；
 
 ###死信队列(DLX,死信交换机)
 component：Exchange, RouteKey, Queue;
-注意：必须设置 requeue=false
+用途：当消息成为dead message时，将被publish消息至DLX；
+载体：在Queue声明时指定；
+注意：必须设置 requeue=false；
+
 
 ###备用交换机(AE)
 https://www.rabbitmq.com/ae.html
+用途：消息到达Exchange,却无法路由，将被publish消息至AE；
+载体：在Exchange声明时指定；
+注意：设置AE之后，不再出发ReturnCallback；
 
 ###场景
 
