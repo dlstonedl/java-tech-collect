@@ -47,7 +47,7 @@ retry：默认为false；
 
 ###死信队列(DLX,死信交换机)
 component：Exchange, RouteKey, Queue;
-死信队列与队列绑定
+注意：必须设置 requeue=false
 
 ###备用交换机(AE)
 https://www.rabbitmq.com/ae.html
@@ -77,6 +77,12 @@ result: 遇到异常本地重试，默认次数为3次，最后队列为空
 例子：比如消息：1，2，3，4，5；3异常；result：1，2，3，3，3，4，5
 注意：retry.enabled=true， requeue不生效；block后续消息的处理，直至重试结束；
 
+7.场景：1个queue已经创建，此时需在queue上添加DLX；
+注意：首先需要将此queue删除，否则会报错，删除之后重新创建；
+
+8.场景：1个queue(DLX)，prefetchCount=5，txSize=5，requeue=false；
+action：生产者连续发5条消息，其中一条异常；（1，2，3，4，5；3，异常）
+result：死信队列(1, 2, 3), 正常消费(4, 5)
 
 
 
