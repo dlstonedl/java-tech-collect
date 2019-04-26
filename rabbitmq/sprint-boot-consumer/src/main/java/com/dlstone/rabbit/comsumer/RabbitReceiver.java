@@ -18,7 +18,8 @@ public class RabbitReceiver {
                     autoDelete = "false",
                     arguments= {@Argument(name = "x-dead-letter-exchange", value = "dlx.exchange")}),
             exchange = @Exchange(name = "spring_boot_producer_exchange",
-                    type = ExchangeTypes.TOPIC),
+                    type = ExchangeTypes.TOPIC,
+                    arguments = {@Argument(name = "alternate-exchange", value = "ae.exchange")}),
             key = "spring.boot.*"
     ))
     public void handler(Message message, Channel channel) throws Exception {
