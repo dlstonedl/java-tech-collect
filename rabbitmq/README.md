@@ -28,6 +28,14 @@ default-requeue-rejected: 默认为true(重回队列)
 注意：生产环境应该设置为false；
 
 ack默认方式：AcknowledgeMode.AUTO
+含义：方法return之后自动ack，RabbitMQ本身没有此功能，spring扩展功能；
+
+acknowledge-mode: manual
+含义：手动确认ack
+channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+
+acknowledge-mode: none
+含义：收到消息后，立即自动ack
 
 prefetchCount 消息预取: DEFAULT_PREFETCH_COUNT=250
 
