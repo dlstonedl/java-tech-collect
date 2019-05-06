@@ -29,6 +29,7 @@ default-requeue-rejected: 默认为true(重回队列)
 
 ack默认方式：AcknowledgeMode.AUTO
 含义：方法return之后自动ack，RabbitMQ本身没有此功能，spring扩展功能；
+正常返回：ack；抛异常：nack；
 
 acknowledge-mode: manual
 含义：手动确认ack
