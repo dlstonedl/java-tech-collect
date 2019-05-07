@@ -1,4 +1,4 @@
-package com.dlstone.rabbit.comsumer;
+package com.dlstone.rabbit.comsumer.push;
 
 import com.rabbitmq.client.Channel;
 import org.springframework.amqp.core.ExchangeTypes;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import java.util.concurrent.TimeUnit;
 
 @Component
-public class RabbitReceiver {
+public class RabbitPushModel {
 
     @RabbitListener(bindings = @QueueBinding(
             value = @Queue(name = "spring_boot_queue",

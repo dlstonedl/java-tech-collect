@@ -1,4 +1,4 @@
-package com.dlstone.rabbit.comsumer;
+package com.dlstone.rabbit.comsumer.push;
 
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;

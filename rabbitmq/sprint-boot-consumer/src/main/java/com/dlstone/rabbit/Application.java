@@ -1,4 +1,4 @@
-package com.dlstone.rabbit.comsumer;
+package com.dlstone.rabbit;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
