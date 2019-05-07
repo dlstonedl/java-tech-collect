@@ -6,4 +6,5 @@
 /target/
 rabbitmq/sprint-boot-consumer/target/
 rabbitmq/sprint-boot-producer/target/
+rabbitmq/rabbitmq-sample/target/
 vcs.xml
