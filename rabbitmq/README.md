@@ -19,7 +19,8 @@ publisher-returns=true：ReturnCallback
 含义：确认消息是否成功到达队列  
 
 #### 注意：
-如果消息成功到达Exchange，但到达队列失败，ack返回true，并触发ReturnCallback  
++ 如果消息成功到达Exchange，但到达队列失败，ack返回true，并触发ReturnCallback  
++ 生产端发送消息的时候，需要指定Exchange和routingKey名称
 
 ### 消费端
 
@@ -65,7 +66,7 @@ component：Exchange, RouteKey, Queue;
 https://www.rabbitmq.com/ae.html  
 用途：消息到达Exchange,却无法路由，将被publish消息至AE；  
 载体：在Exchange声明时指定；  
-注意：设置AE之后，不再出发ReturnCallback；  
+注意：设置AE之后，不再触发ReturnCallback；  
 
 ### 场景
 
