@@ -1,6 +1,7 @@
 package com.dlstone.rabbit.consumer.pull;
 
 import com.dlstone.rabbit.comsumer.pull.RabbitPullModel;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ public class RabbitPullModelTest {
     private RabbitPullModel rabbitPullModel;
 
     @Test
+    @Ignore
     public void should_get_message_through_pull_model() {
         rabbitPullModel.pullMessage();
     }
