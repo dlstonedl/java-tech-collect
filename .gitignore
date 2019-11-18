@@ -8,3 +8,5 @@ rabbitmq/sprint-boot-consumer/target/
 rabbitmq/sprint-boot-producer/target/
 rabbitmq/rabbitmq-sample/target/
 vcs.xml
+kafka/kafka-consumer/target/
+kafka/kafka-producer/target/
